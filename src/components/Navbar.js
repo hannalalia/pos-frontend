@@ -29,12 +29,12 @@ function Navbar() {
             <nav className="text-lg py-2 px-2 mb-2 text-green-500 bg-green-50 grid grid-cols-12">
                 <button className="sm:hidden link text-2xl sm:col-span-1 col-span-6" onClick={()=>handleMenu()}><FiMenu></FiMenu></button>
                 <ul ref={navList}className="hidden sm:flex flex-col sm:flex-row justify-center items-center col-span-12 sm:col-span-11">
-                    <li className="link"><a className="" href="/">Promo</a></li>
-                    <li className="link"><a className="" href="/">Main</a></li>
-                    <li><a href="/profile" className="link">Drinks</a></li>
-                    <li><a href="/portfolio" className="link">Snacks</a></li>
-                    <li><a href="/contact" className="link">Desserts</a></li>
-                    <li><a href="/contact" className="link">Extras</a></li>                  
+                    <li className="link"><a className="" href="/promo">Promo</a></li>
+                    <li className="link"><a className="" href="/main">Main</a></li>
+                    <li><a href="/drinks" className="link">Drinks</a></li>
+                    <li><a href="/snacks" className="link">Snacks</a></li>
+                    <li><a href="/desserts" className="link">Desserts</a></li>
+                    <li><a href="/extras" className="link">Extras</a></li>                  
                 </ul>
                 <button ref={checkoutBtn} className="hidden sm:inline-block link sm:col-span-1 col-span-12"><FaCashRegister className="text-2xl hidden sm:inline-block"></FaCashRegister><span className="sm:hidden">Checkout</span></button>                               
             </nav>

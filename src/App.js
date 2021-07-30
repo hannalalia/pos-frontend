@@ -20,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/">
             <ProductListView productList={productList}></ProductListView>
+          </Route>  
+          <Route exact path="/promo">
+            <ProductListView productList={productList}></ProductListView>
           </Route>      
           <Route>
               <PageNotFound></PageNotFound>
