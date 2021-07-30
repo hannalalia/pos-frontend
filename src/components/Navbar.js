@@ -1,6 +1,7 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {FiMenu} from 'react-icons/fi';
 import {FaCashRegister} from 'react-icons/fa';
+import {AiFillCloseCircle, AiOutlineVerticalLeft} from 'react-icons/ai'
 function Navbar() {
     const navLinks= useRef(); 
     const checkoutBtn= useRef(); 
@@ -16,7 +17,7 @@ function Navbar() {
     useEffect(() => {      
         return () => {
             if(collapseMenu===true){
-                navLinks.current.classList.add('hidden');
+                navLinks.current.classList.add('hidden');               
                 navLinks.current.classList.remove('flex');
                 setShowCheckoutText(false);
             }else{
@@ -46,7 +47,7 @@ function Navbar() {
     return (
         <div className="" >
             {/* Top nav */}
-            <nav className="text-lg py-2 px-2 mb-2 text-green-500 bg-green-50 grid grid-cols-12">
+            <nav className="text-lg py-2 px-2 mb-2 bg-gray-100  text-gray-700  grid grid-cols-12">
                 {/* menu button*/}
                 <button className="lg:hidden link text-2xl lg:col-span-1 col-span-6" onClick={()=>handleMenu()}><FiMenu></FiMenu></button>
                 {/* links */}
@@ -68,7 +69,7 @@ function Navbar() {
             {  
                 showSidebar?(<div className="w-1/3 p-1  bg-white border-l-2 border-b-2 absolute z-10 top-0 right-0 h-full">
                 <div className="p-3 border-b-2 mb-3">
-                    <button onClick={()=>setShowSidebar(false)} className="cursor-pointer">&lt;</button>
+                    <button onClick={()=>setShowSidebar(false)} className="cursor-pointer text-2xl text-gray-500"><AiOutlineVerticalLeft></AiOutlineVerticalLeft></button>
                 </div>
                 <table className="text-center table-fixed border-collapse w-full">
                     <thead>
@@ -92,7 +93,7 @@ function Navbar() {
                             </td>
                             <td className="py-1 px-3 break-all " colSpan="2">$22,227,384.95</td>
                             <td className="py-1 px-3 break-all " colSpan="1">45</td>
-                            <td className="py-1 px-3" colSpan="1"><button className="btn">x</button></td>
+                            <td className="py-1 px-3" colSpan="1"><button className="text-gray-500 text-2xl hover:text-gray-600"><AiFillCloseCircle></AiFillCloseCircle></button></td>
                         </tr>
                     </tbody>
                     <tfoot>
@@ -102,9 +103,9 @@ function Navbar() {
                         </tr>
                     </tfoot>
                 </table>
-                <div className="flex justify-around px-2 py-2">
-                    <button className="btn">Checkout</button>
-                    <button className="btn">Remove All</button>
+                <div className="flex justify-around px-2 py-2 mb-9">
+                    <button className="bg-gray-500 hover:bg-gray-600 text-gray-100 px-3 py-2 rounded">Checkout</button>
+                    <button className="bg-primary hover:bg-red-500 text-red-100 px-3 py-2 rounded">Remove All</button>
                 </div>
             </div>):''
             }

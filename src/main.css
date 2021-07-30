@@ -32850,7 +32850,7 @@ video {
 
 .link:hover {
   --tw-text-opacity: 1;
-  color: rgba(4, 120, 87, var(--tw-text-opacity));
+  color: rgba(16, 185, 129, var(--tw-text-opacity));
 }
 
 @media (min-width: 640px) {
