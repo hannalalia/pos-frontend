@@ -1,10 +1,6 @@
 import './App.css';
-import UserLoggedIn from './components/Footer';
-import {Fragment} from 'react'
 import Login from './components/Login';
-import Navbar from './components/Navbar';
 import ProductListView from './components/ProductListView';
-import Searchbar from './components/Searchbar';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 function App() {

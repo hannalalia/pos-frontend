@@ -1,7 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {FiMenu} from 'react-icons/fi';
 import {FaCashRegister} from 'react-icons/fa';
-import UserLoggedIn from './Footer';
 function Navbar() {
 
     const navList= useRef(); 
