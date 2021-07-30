@@ -12,7 +12,7 @@ function ProductListView({productList}) {
                 <div className="card" key={product.id}>
                     <div className="text-center capitalize font-semibold p-3 mx-3 text-gray-800">{product.name}</div>
                     <div className="">
-                        <img alt="Product"className="w-auto min-w-full max-h-72 h-auto" src="https://picsum.photos/200/400"></img>
+                        <img alt="Product" className="w-auto min-w-full max-h-72 h-auto" src="https://picsum.photos/200/400"></img>
                     </div>
                     <div className="m-3 text-gray-500">
                         <p> ${product.price}</p>

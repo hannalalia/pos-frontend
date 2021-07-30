@@ -2,6 +2,7 @@ import './App.css';
 import Login from './components/Login';
 import ProductListView from './components/ProductListView';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import PageNotFound from './components/PageNotFound';
 
 function App() {
   const productList = [
@@ -21,7 +22,7 @@ function App() {
             <ProductListView productList={productList}></ProductListView>
           </Route>      
           <Route>
-              404 Page Not Found
+              <PageNotFound></PageNotFound>
           </Route>     
         </Switch>
       </Router>
