@@ -11,8 +11,17 @@ function Navbar() {
         setCollapseMenu(!collapseMenu);
     }
    
+
     useEffect(() => {      
         return () => {
+            window.addEventListener('resize',function(){
+                var sm = window.matchMedia("(min-width: 640px)")
+                    if(sm.matches){
+                        checkoutBtn.current.classList.add('hidden');
+                    }else{
+                        checkoutBtn.current.classList.remove('hidden');
+                    }
+            })
             if(collapseMenu===true){
                 navList.current.classList.add('hidden');
                 navList.current.classList.remove('flex');
@@ -36,7 +45,8 @@ function Navbar() {
                     <li><a href="/desserts" className="link">Desserts</a></li>
                     <li><a href="/extras" className="link">Extras</a></li>                  
                 </ul>
-                <button ref={checkoutBtn} className="hidden sm:inline-block link sm:col-span-1 col-span-12"><FaCashRegister className="text-2xl hidden sm:inline-block"></FaCashRegister><span className="sm:hidden">Checkout</span></button>                               
+                <button  className="hidden sm:inline-block link sm:col-span-1 col-span-12"><FaCashRegister className="text-2xl hidden sm:inline-block"></FaCashRegister></button>      
+                <a ref={checkoutBtn} href="/checkout" className="hidden link col-span-12 text-center">Checkout</a>                         
             </nav>
         </div>
     )
