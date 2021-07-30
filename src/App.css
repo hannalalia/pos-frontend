@@ -1,0 +1,9 @@
+.App {
+
+}
+.custom-scroll{
+    overflow-y: scroll;
+}
+.custom-scroll::-webkit-scrollbar {
+    display: none;
+}
