@@ -5,8 +5,8 @@ function ProductListView({productList}) {
     
     return (
         <div>
-            <Navbar></Navbar> 
-            <Searchbar></Searchbar>
+        <Navbar></Navbar> 
+        <Searchbar></Searchbar>
         <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-3 p-2">
             {productList.map(product=>(
                 <div className="card" key={product.id}>
@@ -16,8 +16,7 @@ function ProductListView({productList}) {
                     </div>
                     <div className="m-3 text-gray-500">
                         <p> ${product.price}</p>
-                        <p className="text-sm"> Code: {product.id}</p>
-                       
+                        <p className="text-sm"> Code: {product.id}</p>                    
                     </div>
                     <div className="m-3 text-gray-800 h-20 custom-scroll">lorem ipsum lorem ipsum lorem ipsum 
                     lorem ipsum lorem ipsum lorem ipsum
@@ -29,8 +28,8 @@ function ProductListView({productList}) {
                     lorem ipsum lorem ipsum lorem ipsum</div>
                     <div className="m-3"><button className="btn">Add Product</button></div>              
                 </div>
-            ))}
-        </div>
+            ))}           
+        </div>      
         </div>
         
     )
