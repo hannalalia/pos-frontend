@@ -12,14 +12,14 @@ function Login() {
             </svg>
             
             <form className="md:w-2/6 absolute z-1">
-            <h1 className="text-center text-green-500 text-3xl mb-3">Point of Sales System</h1>
+            <h1 className="text-center text-gray-500 text-3xl mb-3">Point of Sales System</h1>
                 <div className="input-group">
                     <input className="form-input focus:outline-none focus:ring-2 focus:ring-green-400"type="text" placeholder="Username"></input>
                     <input className="form-input focus:outline-none focus:ring-2 focus:ring-green-400"type="password" placeholder="Password"></input>
                 </div> 
-                <div className="flex flex-col md:flex-row justify-between px-4">
-                    <a type="submit" href="/login" className="btn text-md">Login</a> 
-                    <a href="/register" className="btn text-md">Register</a> 
+                <div className="flex flex-col md:flex-row justify-between gap-2 text-center px-4">
+                    <a type="submit" href="/login" className="bg-gray-500 rounded px-3 py-2 text-gray-100 hover:bg-gray-600 text-md">Login</a> 
+                    <a href="/register" className="bg-gray-500 rounded px-3 py-2 text-gray-100 hover:bg-gray-600 text-md">Register</a> 
                 </div>
                               
             </form>
