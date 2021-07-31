@@ -1,5 +1,5 @@
 import React,{useRef,useState,useEffect} from 'react'
-import {FiMenu} from 'react-icons/fi';
+import {FiMenu, FiChevronLeft, FiChevronRight} from 'react-icons/fi';
 import {FaCashRegister} from 'react-icons/fa';
 import {AiFillCloseCircle, AiOutlineVerticalLeft} from 'react-icons/ai';
 
@@ -55,7 +55,12 @@ function Navbar() {
                     <li><a href="/snacks" className="link">Snacks</a></li>
                     <li><a href="/desserts" className="link">Desserts</a></li>
                     <li><a href="/extras" className="link">Extras</a></li>  
-                    <li><a href="/checkout" className="link inline lg:hidden">Checkout</a></li>                
+                    <li><a href="/checkout" className="link inline lg:hidden">Checkout {count>0 ?
+                    count<=99 ?
+                    <span className="inline lg:hidden badge bg-primary align-baseline mb-2">{count}</span>:
+                    <span className="inline lg:hidden badge bg-primary align-baseline mb-2">99+</span>
+                    :''
+                }    </a></li>                
                 </ul>
                 <div className="hidden lg:block">
                 <button onClick={()=>setShowSidebar(true)}>
@@ -63,7 +68,7 @@ function Navbar() {
                 </button>   
                 {count>0 ?
                     count<=99 ?
-                    <span className="hidden lg:inline badge-counter bg-primary ">{count}</span>:
+                    <span className="hidden lg:inline badge-counter bg-primary">{count}</span>:
                     <span className="hidden lg:inline badge-counter bg-primary">99+</span>
                     :''
                 }                
@@ -83,7 +88,7 @@ function Navbar() {
                         <tr>
                             <th className="py-1 px-3 font-medium" colSpan="3">Product</th>
                             <th className="py-1 px-3 font-medium" colSpan="2">Price</th>
-                            <th className="py-1 px-3 font-medium" colSpan="1">Count</th>
+                            <th className="py-1 px-3 font-medium" colSpan="2">Count</th>
                             <th colSpan="1"></th>
                         </tr>
                     </thead>
@@ -94,13 +99,20 @@ function Navbar() {
                                     <tbody>
                                         <tr className="break-word"><td>Item 1</td></tr>
                                         <tr className="break-all text-sm text-gray-500"><td>productcode</td></tr>
-                                    </tbody>
-                                    
+                                    </tbody>                   
                                 </table>                          
                             </td>
-                            <td className="py-1 px-3 break-all " colSpan="2">$22,227,384.95</td>
-                            <td className="py-1 px-3 break-all " colSpan="1">45</td>
-                            <td className="py-1 px-3" colSpan="1"><button className="text-gray-500 text-2xl hover:text-gray-600"><AiFillCloseCircle></AiFillCloseCircle></button></td>
+                            <td className="py-1 px-3 break-all" colSpan="2">$22,227,384.95</td>
+                            <td className="py-1 px-3 break-all" colSpan="2">
+                                <button className="align-bottom pb-1 text-gray-500 hover:text-gray-600"><FiChevronLeft></FiChevronLeft></button>
+                                450
+                                <button className="align-bottom pb-1 text-gray-500 hover:text-gray-600"><FiChevronRight></FiChevronRight></button>
+                                </td>
+                            <td className="py-1 px-3" colSpan="1">
+                                <button className="text-gray-500 text-2xl hover:text-gray-600">
+                                    <AiFillCloseCircle></AiFillCloseCircle>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                     <tfoot>
