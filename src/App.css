@@ -4,6 +4,21 @@
 .custom-scroll{
     overflow-y: scroll;
 }
-.custom-scroll::-webkit-scrollbar {
-    display: none;
+.custom-scroll-with-handle::-webkit-scrollbar {
+    width: 5px;
+    height: .75rem;
 }
+
+.custom-scroll-with-handle::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 1rem;
+  }  
+.custom-scroll-with-handle::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 1rem;
+  }
+
+.custom-scroll-with-handle::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    border-radius: 1rem;
+  }

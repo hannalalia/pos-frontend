@@ -83,33 +83,34 @@ function Navbar() {
                         <AiOutlineVerticalLeft></AiOutlineVerticalLeft>
                     </button>
                 </div>
-                <table className="text-center table-fixed border-collapse w-full">
+                <div className="overflow-x-auto custom-scroll-with-handle">
+                <table className="text-center table-auto border-collapse w-full">
                     <thead>
                         <tr>
-                            <th className="py-1 px-3 font-medium" colSpan="3">Product</th>
-                            <th className="py-1 px-3 font-medium" colSpan="2">Price</th>
-                            <th className="py-1 px-3 font-medium" colSpan="2">Count</th>
-                            <th colSpan="1"></th>
+                            <th className="py-1 px-3 font-medium">Product</th>
+                            <th className="py-1 px-3 font-medium">Price</th>
+                            <th className="py-1 px-3 font-medium">Count</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr className="border-b-2 border-t-2">
-                            <td className="py-1 px-3" colSpan="3">
+                            <td className="py-1 px-3">
                                 <table className="text-left">
                                     <tbody>
-                                        <tr className="break-word"><td>Item 1</td></tr>
-                                        <tr className="break-all text-sm text-gray-500"><td>productcode</td></tr>
+                                        <tr className=""><td>Item 1</td></tr>
+                                        <tr className="text-sm text-gray-500"><td>productcode</td></tr>
                                     </tbody>                   
                                 </table>                          
                             </td>
-                            <td className="py-1 px-3 break-all" colSpan="2">$22,227,384.95</td>
-                            <td className="py-1 px-3 break-all" colSpan="2">
+                            <td className="py-1 px-3 break-all">$22,227,384.95</td>
+                            <td className="py-1 px-3 ">
                                 <button className="align-bottom pb-1 text-gray-500 hover:text-gray-600"><FiChevronLeft></FiChevronLeft></button>
                                 450
                                 <button className="align-bottom pb-1 text-gray-500 hover:text-gray-600"><FiChevronRight></FiChevronRight></button>
                                 </td>
-                            <td className="py-1 px-3" colSpan="1">
-                                <button className="text-gray-500 text-2xl hover:text-gray-600">
+                            <td className="py-1 px-3">
+                                <button className="text-primary text-2xl hover:text-red-500">
                                     <AiFillCloseCircle></AiFillCloseCircle>
                                 </button>
                             </td>
@@ -122,6 +123,8 @@ function Navbar() {
                         </tr>
                     </tfoot>
                 </table>
+                </div>
+                
                 <div className="flex justify-around px-2 py-2 mb-9">
                     <button className="bg-gray-500 hover:bg-gray-600 text-gray-100 px-3 py-2 rounded">Checkout</button>
                     <button className="bg-primary hover:bg-red-500 text-red-100 px-3 py-2 rounded">Remove All</button>

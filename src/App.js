@@ -3,6 +3,7 @@ import Login from './components/Login';
 import ProductListView from './components/ProductListView';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import PageNotFound from './components/PageNotFound';
+import Checkout from './components/Checkout';
 
 function App() {
   const productList = [
@@ -23,6 +24,9 @@ function App() {
           </Route>  
           <Route exact path="/promo">
             <ProductListView productList={productList}></ProductListView>
+          </Route>  
+          <Route exact path="/checkout">
+            <Checkout></Checkout>
           </Route>      
           <Route>
               <PageNotFound></PageNotFound>
