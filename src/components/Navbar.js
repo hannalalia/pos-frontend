@@ -1,84 +1,82 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {FiMenu} from 'react-icons/fi';
 import {FaCashRegister} from 'react-icons/fa';
-import {AiFillCloseCircle, AiOutlineVerticalLeft} from 'react-icons/ai'
+import {AiFillCloseCircle, AiOutlineVerticalLeft} from 'react-icons/ai';
+
 function Navbar() {
-    const navLinks= useRef(); 
-    const checkoutBtn= useRef(); 
-    const [collapseMenu,setCollapseMenu] = useState(false);
+    
+    const navLinks= useRef();  
+    const [collapseMenu,setCollapseMenu] = useState(true);
     const [showSidebar, setShowSidebar] = useState(false);
-    const [showCheckoutText, setShowCheckoutText] = useState(false);
-    const [showBadge, setShowBadge] = useState(false);
     const count = 100;
+    
     function handleMenu(){
         setCollapseMenu(!collapseMenu);
     }
     //hide links on menu click
-    useEffect(() => {      
+    useEffect(() => { 
+        let links = navLinks.current;    
         return () => {
             if(collapseMenu===true){
-                navLinks.current.classList.add('hidden');               
-                navLinks.current.classList.remove('flex');
-                setShowCheckoutText(false);        
+                links.classList.add('hidden');                     
             }else{
-                navLinks.current.classList.remove('hidden');
-                navLinks.current.classList.add('flex');
-                setShowCheckoutText(true);
+                links.classList.remove('hidden');
             }
-        }
+        }      
     }, [collapseMenu])
-
-    //on desktop devices/large screen show checkout icon button and on smaller screen device show the checkout text link
+    
+    //on desktop/large screen devices set menu collapse state back to true
     //hide checkout sidebar on window resize
-    useEffect(() => {           
+    useEffect(() => {            
         return () => {
             window.addEventListener('resize',function(){
-                setShowSidebar(false)
-                var sm = window.matchMedia("(min-width: 1024px)")
-                    if(sm.matches){
-                        setShowCheckoutText(false)  
-                        setShowBadge(true)
-                    }else{
-                        setShowCheckoutText(true)  
-                        setShowBadge(false)               
+                setShowSidebar(false)                
+                var lg = window.matchMedia("(min-width: 1024px)")
+                    if(lg.matches){
+                        setCollapseMenu(true);                   
                     }
             })
         }
     });
     
     return (
-        <div className="" >
+        <div>
             {/* Top nav */}
             <nav className="text-lg py-2 px-2 mb-2 bg-gray-100  text-gray-700  grid grid-cols-12">
                 {/* menu button*/}
-                <button className="lg:hidden link text-2xl lg:col-span-1 col-span-6" onClick={()=>handleMenu()}><FiMenu></FiMenu></button>
+                <button className="inline lg:hidden link text-2xl lg:col-span-1 col-span-6" onClick={()=>handleMenu()}>
+                    <FiMenu></FiMenu>
+                </button>
                 {/* links */}
-                <ul ref={navLinks}className="hidden lg:flex flex-col lg:flex-row justify-center items-center col-span-12 sm:col-span-11">
+                <ul ref={navLinks} className="flex flex-col lg:flex-row justify-center items-center col-span-12 lg:col-span-11">
                     <li className="link"><a className="" href="/promo">Promo</a></li>
                     <li className="link"><a className="" href="/main">Main</a></li>
                     <li><a href="/drinks" className="link">Drinks</a></li>
                     <li><a href="/snacks" className="link">Snacks</a></li>
                     <li><a href="/desserts" className="link">Desserts</a></li>
                     <li><a href="/extras" className="link">Extras</a></li>  
-                     {/* checkout text link*/}
-                    { showCheckoutText?(<li><a ref={checkoutBtn} href="/checkout" className="link">Checkout</a></li>):""}                
+                    <li><a href="/checkout" className="link inline lg:hidden">Checkout</a></li>                
                 </ul>
-                  {/* checkout icon button*/}
                 <div className="hidden lg:block">
-                <button onClick={()=>setShowSidebar(true)}><FaCashRegister className="text-2xl hidden lg:inline link lg:col-span-1"></FaCashRegister></button>   
+                <button onClick={()=>setShowSidebar(true)}>
+                    <FaCashRegister className="text-2xl hidden lg:inline link lg:col-span-1"></FaCashRegister>
+                </button>   
                 {count>0 ?
-                    count<=99 ?<span className="hidden lg:inline text-xs bg-primary rounded-full px-2 py-1 h-1 w-2 align-top -ml-6 text-white">{count}</span>:<span className="hidden lg:inline text-xs bg-primary rounded-full px-2 py-1 h-1 w-2 align-top -ml-6 text-white">99+</span>
+                    count<=99 ?
+                    <span className="hidden lg:inline badge-counter bg-primary ">{count}</span>:
+                    <span className="hidden lg:inline badge-counter bg-primary">99+</span>
                     :''
                 }                
-                </div>
-                                               
+                </div>                                             
             </nav>
 
             {/* Checkout sidebar nav*/}
             {  
                 showSidebar?(<div className="w-1/3 p-1  bg-white border-l-2 border-b-2 absolute z-10 top-0 right-0 h-full">
                 <div className="p-3 border-b-2 mb-3">
-                    <button onClick={()=>setShowSidebar(false)} className="cursor-pointer text-2xl text-gray-500"><AiOutlineVerticalLeft></AiOutlineVerticalLeft></button>
+                    <button onClick={()=>setShowSidebar(false)} className="cursor-pointer text-2xl text-gray-500">
+                        <AiOutlineVerticalLeft></AiOutlineVerticalLeft>
+                    </button>
                 </div>
                 <table className="text-center table-fixed border-collapse w-full">
                     <thead>
@@ -86,7 +84,7 @@ function Navbar() {
                             <th className="py-1 px-3 font-medium" colSpan="3">Product</th>
                             <th className="py-1 px-3 font-medium" colSpan="2">Price</th>
                             <th className="py-1 px-3 font-medium" colSpan="1">Count</th>
-                            <th colSpan="1" ></th>
+                            <th colSpan="1"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -117,8 +115,7 @@ function Navbar() {
                     <button className="bg-primary hover:bg-red-500 text-red-100 px-3 py-2 rounded">Remove All</button>
                 </div>
             </div>):''
-            }
-            
+            }           
         </div>
     )
 }

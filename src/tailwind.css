@@ -17,6 +17,9 @@
 .card{
     @apply border-2 shadow-sm border-gray-100 w-auto;
 }
+.badge-counter{
+    @apply text-xs rounded-full px-2 py-1 h-1 w-2 align-top -ml-6 text-white;
+}
 
   
 
