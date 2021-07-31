@@ -8,18 +8,18 @@ function Navbar() {
     const [collapseMenu,setCollapseMenu] = useState(false);
     const [showSidebar, setShowSidebar] = useState(false);
     const [showCheckoutText, setShowCheckoutText] = useState(false);
-       
+    const [showBadge, setShowBadge] = useState(false);
+    const count = 100;
     function handleMenu(){
         setCollapseMenu(!collapseMenu);
     }
-   
     //hide links on menu click
     useEffect(() => {      
         return () => {
             if(collapseMenu===true){
                 navLinks.current.classList.add('hidden');               
                 navLinks.current.classList.remove('flex');
-                setShowCheckoutText(false);
+                setShowCheckoutText(false);        
             }else{
                 navLinks.current.classList.remove('hidden');
                 navLinks.current.classList.add('flex');
@@ -30,15 +30,17 @@ function Navbar() {
 
     //on desktop devices/large screen show checkout icon button and on smaller screen device show the checkout text link
     //hide checkout sidebar on window resize
-    useEffect(() => {      
+    useEffect(() => {           
         return () => {
             window.addEventListener('resize',function(){
                 setShowSidebar(false)
                 var sm = window.matchMedia("(min-width: 1024px)")
                     if(sm.matches){
-                        setShowCheckoutText(false)                     
+                        setShowCheckoutText(false)  
+                        setShowBadge(true)
                     }else{
-                        setShowCheckoutText(true)                 
+                        setShowCheckoutText(true)  
+                        setShowBadge(false)               
                     }
             })
         }
@@ -62,7 +64,14 @@ function Navbar() {
                     { showCheckoutText?(<li><a ref={checkoutBtn} href="/checkout" className="link">Checkout</a></li>):""}                
                 </ul>
                   {/* checkout icon button*/}
-                <button onClick={()=>setShowSidebar(true)} className="hidden lg:inline-block link lg:col-span-1"><FaCashRegister className="text-2xl"></FaCashRegister></button>                                    
+                <div className="hidden lg:block">
+                <button onClick={()=>setShowSidebar(true)}><FaCashRegister className="text-2xl hidden lg:inline link lg:col-span-1"></FaCashRegister></button>   
+                {count>0 ?
+                    count<=99 ?<span className="hidden lg:inline text-xs bg-primary rounded-full px-2 py-1 h-1 w-2 align-top -ml-6 text-white">{count}</span>:<span className="hidden lg:inline text-xs bg-primary rounded-full px-2 py-1 h-1 w-2 align-top -ml-6 text-white">99+</span>
+                    :''
+                }                
+                </div>
+                                               
             </nav>
 
             {/* Checkout sidebar nav*/}
