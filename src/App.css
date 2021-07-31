@@ -4,6 +4,10 @@
 .custom-scroll{
     overflow-y: scroll;
 }
+.custom-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 .custom-scroll-with-handle::-webkit-scrollbar {
     width: 5px;
     height: .75rem;

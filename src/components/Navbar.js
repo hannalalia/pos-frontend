@@ -77,7 +77,7 @@ function Navbar() {
 
             {/* Checkout sidebar nav*/}
             {  
-                showSidebar?(<div className="w-1/3 p-1  bg-white border-l-2 border-b-2 absolute z-10 top-0 right-0 h-full">
+                showSidebar?(<div className="w-1/3 p-1  bg-white border-l-2 fixed top-0 bottom-0 right-0">
                 <div className="p-3 border-b-2 mb-3">
                     <button onClick={()=>setShowSidebar(false)} className="cursor-pointer text-2xl text-gray-500">
                         <AiOutlineVerticalLeft></AiOutlineVerticalLeft>
