@@ -110,7 +110,7 @@ function Navbar() {
                                 <button className="align-bottom pb-1 text-gray-500 hover:text-gray-600"><FiChevronRight></FiChevronRight></button>
                                 </td>
                             <td className="py-1 px-3">
-                                <button className="text-primary text-2xl hover:text-red-500">
+                                <button className="text-gray-500 hover:text-gray-600 text-2xl">
                                     <AiFillCloseCircle></AiFillCloseCircle>
                                 </button>
                             </td>
@@ -126,7 +126,7 @@ function Navbar() {
                 </div>
                 
                 <div className="flex justify-around px-2 py-2 mb-9">
-                    <button className="bg-gray-500 hover:bg-gray-600 text-gray-100 px-3 py-2 rounded">Checkout</button>
+                    <button className="btn">Checkout</button>
                     <button className="bg-primary hover:bg-red-500 text-red-100 px-3 py-2 rounded">Remove All</button>
                 </div>
             </div>):''
